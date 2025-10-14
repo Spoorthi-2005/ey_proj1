@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@400;600;700&display=swap');
+
+:root{
+  --indigo:#4F46E5;--indigo-2:#6d28d9;--emerald:#10B981;--amber:#F59E0B;
+  --light:#F9FAFB;--light-2:#ffffff;--dark:#1F2937;--muted:#6b7280;--border:#e8ecf3
+}
+html,body{background:var(--light);font-family:'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+
+/* Animated gradient header */
+.header{background:linear-gradient(120deg,var(--indigo),var(--indigo-2));background-size:200% 200%;animation:grad 8s ease infinite;color:#fff;padding:20px 24px;border-radius:16px;margin:8px 0}
+@keyframes grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* Cards */
+.card{background:var(--light-2);border-radius:18px;box-shadow:0 12px 28px rgba(31,41,55,.08);padding:18px;border:1px solid var(--border);transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(31,41,55,.12)}
+
+/* KPIs */
+.kpi{display:flex;align-items:center;gap:10px}
+.kpi .value{font-size:30px;font-weight:800;color:var(--dark)}
+.kpi .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--indigo);color:#fff;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.2);box-shadow:0 6px 14px rgba(79,70,229,.25);text-decoration:none;font-weight:700;letter-spacing:.2px}
+.btn:hover{filter:brightness(1.05)}
+
+/* Chips */
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;background:#f3f4f6;border:1px solid var(--border);border-radius:999px;color:#374151;font-weight:600}
+.chip .x{opacity:.6}
+
+/* Sections */
+.section-title{font-weight:800;color:var(--dark);margin:10px 0 6px}
+.badge{display:inline-block;padding:6px 12px;border-radius:999px;background:#EEF2FF;border:1px solid #dbeafe;color:#3730A3;font-weight:700}
+
+hr{border:none;border-top:1px solid #edf2f7;margin:16px 0}
+.sidebar .block-container{padding-top:10px}

@@ -1,0 +1,22 @@
+2025-10-12 13:11:26.126 Uncaught app exception
+Traceback (most recent call last):
+  File "C:\Users\Spoorthi Garikipati\Downloads\bhavana23_ey\.venv\Lib\site-packages\streamlit\runtime\scriptrunner\exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "C:\Users\Spoorthi Garikipati\Downloads\bhavana23_ey\.venv\Lib\site-packages\streamlit\runtime\scriptrunner\script_runner.py", line 590, in code_to_exec
+    exec(code, module.__dict__)
+  File "C:\Users\Spoorthi Garikipati\Downloads\bhavana23_ey\app\streamlit_app.py", line 80, in <module>
+    p = fraud.run_fraud()
+        ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Spoorthi Garikipati\Downloads\bhavana23_ey\src\fraud.py", line 17, in run_fraud
+    df = _load_nlp()
+         ^^^^^^^^^^^
+  File "C:\Users\Spoorthi Garikipati\Downloads\bhavana23_ey\src\fraud.py", line 12, in _load_nlp
+    raise FileNotFoundError("Run NLP first to create reviews_nlp.parquet")
+FileNotFoundError: Run NLP first to create reviews_nlp.parquet
+Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+Error while downloading from https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest/resolve/main/pytorch_model.bin: HTTPSConnectionPool(host='cas-bridge.xethub.hf.co', port=443): Read timed out.
+Trying to resume download...
+Some weights of the model checkpoint at cardiffnlp/twitter-roberta-base-sentiment-latest were not used when initializing RobertaForSequenceClassification: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
