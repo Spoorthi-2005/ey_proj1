@@ -1,35 +1,150 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@400;600;700&display=swap');
 
 :root{
-  --indigo:#4F46E5;--indigo-2:#6d28d9;--emerald:#10B981;--amber:#F59E0B;
-  --light:#F9FAFB;--light-2:#ffffff;--dark:#1F2937;--muted:#6b7280;--border:#e8ecf3
+  /* Modern Business palette (UI only) */
+  --primary:#F5C542;       /* buttons / highlights */
+  --primary-2:#E0AA3E;     /* hover / focus */
+  --bg:#D6C3A5;            /* main background (beige) */
+  --sidebar:#2D2D2D;       /* sidebar / panels (lighter black) */
+  --text:#2B2B2B;          /* titles & body */
+  --card:#FFFFFF;          /* card backgrounds */
+  --border:#DADCE0;        /* dividers / borders */
 }
-html,body{background:var(--light);font-family:'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+html,body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+body, p, span, label { color: var(--text); }
+h1, h2, h3 { color: var(--text); font-weight: 800; letter-spacing: .2px; }
+.subtle{ color:#5f6368; font-weight:500; }
+
+/* Hero title centered */
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 0 6px}
+.hero .app-title{font-size:3rem;line-height:1.15;margin:0;font-weight:900;color:var(--text);text-align:center;font-family:'Poppins','Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+.hero .app-sub{font-size:0.95rem;margin-top:6px;color:#4b4f56;text-align:center}
+
+/* Streamlit container backgrounds & text */
+[data-testid="stAppViewContainer"]{background:var(--bg);color:var(--text)}
+/* Constrain main content width and center */
+[data-testid="stAppViewContainer"] .main .block-container{max-width:1100px;margin:0 auto}
+section[data-testid="stSidebar"]{background:var(--sidebar)}
+section[data-testid="stSidebar"] *{color:#f1f3f4}
+div[data-testid="stVerticalBlock"]{color:var(--text)}
+
+/* Sidebar input controls: white fields with dark text for readability */
+section[data-testid="stSidebar"] input,
+section[data-testid="stSidebar"] textarea {
+  background:#FFFFFF !important;
+  color:#2B2B2B !important;
+  border:1px solid rgba(0,0,0,.15) !important;
+  border-radius:10px !important;
+}
+section[data-testid="stSidebar"] .stNumberInput input,
+section[data-testid="stSidebar"] .stTextInput input {
+  background:#FFFFFF !important;
+  color:#2B2B2B !important;
+}
+/* Selectbox (BaseWeb) */
+section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
+  background:#FFFFFF !important;
+  color:#2B2B2B !important;
+  border:1px solid rgba(0,0,0,.15) !important;
+  border-radius:10px !important;
+}
+/* Value/placeholder text inside the select */
+section[data-testid="stSidebar"] div[data-baseweb="select"] input,
+section[data-testid="stSidebar"] div[data-baseweb="select"] div {
+  color:#2B2B2B !important;
+}
+/* Select dropdown menu */
+section[data-testid="stSidebar"] div[data-baseweb="menu"] {
+  background:#FFFFFF !important;
+  color:#2B2B2B !important;
+  border:1px solid rgba(0,0,0,.12) !important;
+}
+section[data-testid="stSidebar"] div[data-baseweb="menu"] div[role="option"] {
+  color:#2B2B2B !important;
+}
+section[data-testid="stSidebar"] div[data-baseweb="menu"] div[role="option"]:hover {
+  background:#f3f4f6 !important;
+}
+/* Placeholder text */
+section[data-testid="stSidebar"] input::placeholder,
+section[data-testid="stSidebar"] textarea::placeholder { color:#2B2B2B !important; opacity:1; }
+/* Caret visibility */
+section[data-testid="stSidebar"] input { caret-color:#2B2B2B; }
+/* Disabled inputs maintain legibility */
+section[data-testid="stSidebar"] input:disabled,
+section[data-testid="stSidebar"] textarea:disabled {
+  opacity:1 !important;
+  color:#6b7280 !important;
+}
+
+/* Sidebar buttons: primary gold with lighter-gold hover; active state left border */
+section[data-testid="stSidebar"] .stButton > button{
+  background:var(--primary);color:#2B2B2B;font-weight:700;border:1px solid rgba(0,0,0,.08);border-radius:10px
+}
+section[data-testid="stSidebar"] .stButton > button:hover{background:var(--primary-2)}
+section[data-testid="stSidebar"] .stButton > button:focus, 
+section[data-testid="stSidebar"] .stButton > button:active{
+  box-shadow:inset 4px 0 0 0 var(--primary);
+}
 
 /* Animated gradient header */
-.header{background:linear-gradient(120deg,var(--indigo),var(--indigo-2));background-size:200% 200%;animation:grad 8s ease infinite;color:#fff;padding:20px 24px;border-radius:16px;margin:8px 0}
+.header{background:transparent;color:var(--text);padding:10px 4px;margin:6px 0 2px}
 @keyframes grad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
 /* Cards */
-.card{background:var(--light-2);border-radius:18px;box-shadow:0 12px 28px rgba(31,41,55,.08);padding:18px;border:1px solid var(--border);transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s}
-.card:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(31,41,55,.12)}
+.card{background:var(--card);border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.06);padding:16px;border:1px solid var(--border);transition:transform .2s, box-shadow .2s;margin:8px auto;max-width:1100px}
+.card + .card{margin-top:8px}
+.card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.1)}
+.card.highlight{box-shadow:0 0 0 3px var(--primary) inset, 0 14px 30px rgba(0,0,0,.12)}
+html{scroll-behavior:smooth}
+
+/* Visualization pulse highlight */
+[data-testid="stPlotlyChart"].viz-pulse,
+[data-testid="stDataFrame"].viz-pulse{
+  outline:3px solid var(--primary);
+  box-shadow:0 0 0 6px rgba(173,151,79,.25);
+  border-radius:12px;
+  animation:pulseBorder 1200ms ease-in-out 2;
+}
+@keyframes pulseBorder{0%{box-shadow:0 0 0 0 rgba(173,151,79,.0)}50%{box-shadow:0 0 0 6px rgba(173,151,79,.35)}100%{box-shadow:0 0 0 0 rgba(173,151,79,.0)}}
+
+/* Dividers */
+hr{border:none;border-top:1px solid var(--border);margin:16px 0}
 
 /* KPIs */
 .kpi{display:flex;align-items:center;gap:10px}
-.kpi .value{font-size:30px;font-weight:800;color:var(--dark)}
-.kpi .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.kpi .value{font-size:30px;font-weight:800;color:var(--text)}
+.kpi .label{font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:.08em}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--indigo);color:#fff;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.2);box-shadow:0 6px 14px rgba(79,70,229,.25);text-decoration:none;font-weight:700;letter-spacing:.2px}
-.btn:hover{filter:brightness(1.05)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#2B2B2B;padding:10px 14px;border-radius:12px;border:1px solid rgba(0,0,0,.06);box-shadow:0 6px 14px rgba(0,0,0,.06);text-decoration:none;font-weight:700;letter-spacing:.2px}
+.btn:hover{background:var(--primary-2)}
 
 /* Chips */
 .chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;background:#f3f4f6;border:1px solid var(--border);border-radius:999px;color:#374151;font-weight:600}
 .chip .x{opacity:.6}
 
 /* Sections */
-.section-title{font-weight:800;color:var(--dark);margin:10px 0 6px}
-.badge{display:inline-block;padding:6px 12px;border-radius:999px;background:#EEF2FF;border:1px solid #dbeafe;color:#3730A3;font-weight:700}
+.section-title{font-weight:800;color:var(--text);margin:10px 0 6px}
+.badge{display:inline-block;padding:6px 12px;border-radius:999px;background:#FFF7DA;border:1px solid #F3DB7A;color:#5C4A00;font-weight:700}
 
-hr{border:none;border-top:1px solid #edf2f7;margin:16px 0}
 .sidebar .block-container{padding-top:10px}
+
+/* Tables: bold headers for st.dataframe and st.table */
+[data-testid="stDataFrame"] thead th, 
+[data-testid="stDataFrame"] thead td, 
+[data-testid="stTable"] th {
+  font-weight: 900 !important;
+  color: #1f2937 !important; /* slightly darker for contrast */
+  background: #EADDC6 !important; /* high-contrast against beige */
+  border-bottom: 2px solid #c9b797 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 0.95rem;
+}
+/* Bold table body text */
+[data-testid="stDataFrame"] tbody td,
+[data-testid="stTable"] td{
+  font-weight: 700 !important;
+  color: #2B2B2B !important;
+}

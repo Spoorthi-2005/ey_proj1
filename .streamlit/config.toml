@@ -1,7 +1,7 @@
 [theme]
 base = "light"
-primaryColor = "#4F46E5"
-backgroundColor = "#F9FAFB"
-secondaryBackgroundColor = "#FFFFFF"
-textColor = "#1F2937"
+primaryColor = "#F5C542"
+backgroundColor = "#D6C3A5" # beige main
+secondaryBackgroundColor = "#2D2D2D" # lighter black sidebar
+textColor = "#2B2B2B"
 font = "sans serif"

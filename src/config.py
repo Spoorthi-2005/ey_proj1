@@ -26,11 +26,12 @@ RANDOM_STATE = int(os.getenv("RANDOM_STATE", 42))
 MAX_ROWS = int(os.getenv("MAX_ROWS", 50000))
 
 # Dashboard
-APP_TITLE = os.getenv("APP_TITLE", "IntelliReview Dashboard")
+APP_TITLE = os.getenv("APP_TITLE", "NLP-Powered Sentiment & Review Analytics")
 COLOR_PALETTE = {
-    "indigo": "#4F46E5",
-    "emerald": "#10B981",
-    "amber": "#F59E0B",
-    "light": "#F9FAFB",
-    "dark": "#1F2937",
+    # Selected professional palette (Option 2): golds + charcoal + light gray
+    "indigo": "#AD974F",   # primary gold
+    "emerald": "#8E793E",  # secondary gold (used as accent)
+    "amber": "#EAEAEA",    # light neutral accent
+    "light": "#EAEAEA",    # background light
+    "dark": "#231F20",     # charcoal text
 }
